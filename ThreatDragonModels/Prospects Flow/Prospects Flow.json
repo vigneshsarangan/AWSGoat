@@ -3,7 +3,7 @@
   "summary": {
     "title": "Prospects Flow",
     "owner": "Vignesh",
-    "description": "Lambda function\n\nWe share api gateway webhook details to Amma Client application, by creating Custom domain in Aws API gateway and create C name records in GoDaddy, and share those webhook details to Amma client. So whenever we submit Prospect by entering client details phon number, name at the client agent end using amma client application, It will send data to our Api webhook, once its received the Lambda will store the data to RDS server. \n\nWe use Regional API, VPC for lambda, Subnet, RDS,\n\nNote: Components\nAWS Lambda - subnet is private, but Security group allowed All traffic in inbound\nAWS RDS - Public Accessible is Yes, but security group is restricted. \nZendesk - Public SAAS solution\nAmeyo Call center App - Hosted in On prem server - It is in public. \nGo Daddy\n\na ) Lambda 1. First - Logs the prospects request, angaza sends the data and it just saves the all the datas to RDS,  Note: (RDS setting publicly accessible - yes, but security group is restricted by adding specific IP's)\n\nb). Lambda 3,  Create Zendesk ticket using Token and upload Basic details to ameyo using Ameyo basic authentication using lambda.\n\nc) Some of Data is uploading to AWS S3 bucket ",
+    "description": "AWS Lambda connect to RDS",
     "id": 0
   },
   "detail": {
@@ -20,7 +20,7 @@
         "description": "Lambda connect RDS"
       }
     ],
-    "diagramTop": 3,
+    "diagramTop": 4,
     "reviewer": "Anup Epari Raj",
     "threatTop": 0
   }
