@@ -8,8 +8,19 @@
   },
   "detail": {
     "contributors": [],
-    "diagrams": [],
-    "diagramTop": 1,
+    "diagrams": [
+      {
+        "id": 1,
+        "title": "New STRIDE diagram",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.2.0",
+        "cells": [],
+        "description": "@startuml node \"GoDaddy\" as godaddy { }  node \"Amma Client Application\" as ammaClient { }  cloud \"AWS\" {     node \"API Gateway (Custom Domain)\" as apiGateway {     }      frame \"VPC\" {         node \"Lambda (Log & Save Data)\" as lambda1 {             note right of lambda1 : Private Subnet\\nSG allows all traffic         }         node \"Lambda (Zendesk & Ameyo)\" as lambda2 {             note right of lambda2 : Private Subnet\\nSG allows all traffic         }          node \"RDS\" as rds {             note right of rds : Publicly accessible\\nSG restricted         }     } }  node \"Zendesk\" as zendesk { }  node \"Ameyo Call Center App\" as ameyo { }  ammaClient --> godaddy : Create CNAME Records ammaClient --> apiGateway : Submit Prospect (Name, Phone) apiGateway --> lambda1 : Invoke Lambda1 lambda1 --> rds : Save Data to RDS lambda1 --> zendesk : Create Zendesk Ticket (Token Auth) lambda1 --> ameyo : Upload Basic Details (Basic Auth)  apiGateway --> lambda2 : Invoke Lambda2 @enduml"
+      }
+    ],
+    "diagramTop": 2,
     "reviewer": "Anup Epari Raj",
     "threatTop": 0
   }
